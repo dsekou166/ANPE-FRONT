@@ -1,0 +1,7 @@
+{
+  "name": "ANPE",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
