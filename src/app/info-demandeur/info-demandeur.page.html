@@ -1,0 +1,92 @@
+
+<ion-content>
+  <div class="container">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs2/postlant" text="" icon="arrow-back" style="color:#146170 ;"></ion-back-button>
+    </ion-buttons>
+    <div>
+      <img src="../../assets/job-exp.png" alt="logo" class="lg">
+    </div>
+    <div>
+      <h3 class="bien">Informations</h3>
+    </div>
+    <div class="text-center ">
+      <img src="{{demandeur.photodemandeur}}" alt="profil" class="prof">
+    </div>
+    <div class="text-center">
+      <h3><b>{{demandeur.prenomdemandeur}} {{demandeur.nomdemandeur}}</b></h3>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Adresse:</b> {{demandeur.adressedemandeur}} </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Age:</b> {{demandeur.agedemandeur}} ans </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>E-mail:</b> {{demandeur.emaildemandeur}} </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Profil:</b> {{demandeur.profildemandeur}} </p>
+        </div>
+      </div>
+    </div>
+    <h1 class="py-1"></h1>
+    <div class="row">
+      <div col-6>
+        
+        <a href="{{demandeur.cv}}" download="" class="btn" style="background-color:#146170 ;" >Voir CV <ion-icon name="cloud-upload-outline"></ion-icon></a>
+      </div>
+      <div col-6 class="bt">
+        <button class="btn" data-bs-toggle="modal" data-bs-target="#user-info" style="background-color:#146170 ;">Contacter</button>
+      </div>
+      </div>
+      <h1 class="py-2"></h1>
+  </div>
+  
+  </ion-content>
+  
+  
+  
+  
+  
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="user-info" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img src="../../assets/job-exp.png" alt="logo" class="lg">
+          <h3 class="bie">Message</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <textarea name="decriptionretour" id="" cols="40" rows="5" class="form-control" [(ngModel)]="decriptionretour">
+              Description
+            </textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn" style="background-color:#146170 ;"
+          (click)="creermessage()">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

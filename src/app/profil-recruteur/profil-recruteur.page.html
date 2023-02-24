@@ -1,0 +1,55 @@
+
+<ion-content>
+  <div class="container">
+    
+    <div>
+      <img src="../../assets/job-exp.png" alt="logo" class="lg">
+    </div>
+    <div>
+      <h3 class="bien">Profile recruteur</h3>
+    </div>
+    <div class="text-center ">
+      <img src="{{unrecruteur.photoentreprise}}" alt="profil" class="prof">
+    </div>
+    <div class="text-center">
+      <h3><b>{{unrecruteur.nomentreprise}}</b></h3>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Nom de l'entreprise:</b> {{unrecruteur.nomentreprise}} </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Secteur d'activité:</b> {{unrecruteur.secteur}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Adresse:</b> {{unrecruteur.adresseentreprise}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>E-mail:</b> {{unrecruteur.emailentreprise}}</p>
+        </div>
+      </div>
+    </div>
+    <h1 class="py-1"></h1>
+    <div class="row">
+      
+      <div col-12 class="text-center">
+        <button class="btn btn-danger"  (click)="logout()" >Deconnexion</button>
+        <h1 class="py-1"></h1>
+      </div>
+      </div>
+  </div>
+  </ion-content>
+  

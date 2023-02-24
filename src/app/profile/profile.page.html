@@ -1,0 +1,76 @@
+
+<ion-content>
+  <div class="container">
+    
+    <div>
+      <img src="../../assets/job-exp.png" alt="logo" class="lg">
+    </div>
+    <div>
+      <h3 class="bien">Profile</h3>
+    </div>
+    <div class="text-center ">
+      <img src="{{undemandeur.photodemandeur}}" alt="profil" class="prof">
+    </div>
+    <div class="text-center">
+      <h3><b>{{undemandeur.prenomdemandeur}} {{undemandeur.nomdemandeur}}</b></h3>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Nom:</b> {{undemandeur.nomdemandeur}} </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Prenom:</b> {{undemandeur.prenomdemandeur}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Adresse:</b> {{undemandeur.adressedemandeur}} </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Age:</b> {{undemandeur.agedemandeur}} ans </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>E-mail:</b> {{undemandeur.emaildemandeur}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-centre">
+        <div class="col-12">
+          <p><b>Profil:</b> {{undemandeur.profildemandeur}} </p>
+        </div>
+      </div>
+    </div>
+    <h1 class="py-1"></h1>
+    <div class="row">
+      <div col-6>
+        <a class="btn" style="background-color:#146170 ;"
+        href="{{undemandeur.cv}}" download="">Voir CV <ion-icon name="download-outline"></ion-icon></a>
+      </div>
+      <div col-6 class="bt">
+        <button class="btn" style="background-color:#146170 ;" routerLink="/tabs/modifier-user">Modifier <ion-icon name="options-outline"></ion-icon></button>
+        <h1 class="py-1"></h1>
+      </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-danger"  (click)="logout()">Deconnexion</button>
+        <h1 class="py-1"></h1>
+      </div>
+  </div>
+  </ion-content>
+  

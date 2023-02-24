@@ -1,0 +1,82 @@
+
+<ion-content>
+  <div class="container" style="background-image:url('../../assets/background.png');">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" text="" icon="arrow-back" style="color:#146170 ;"></ion-back-button>
+    </ion-buttons>
+  <div>
+    <img src="../../assets/job-exp.png" alt="logo" class="lg">
+  </div>
+  <div>
+    <h3 class="bien">Informations sur</h3>
+    <h3 class="bien">l'annonce</h3>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <div><img src="{{uneannonce.photoentreprise}}" alt="logo" style="width:35%;border-radius:50%;"></div>
+      <div class="text-center">
+        <h4>{{uneannonce.nomentreprise}}</h4>
+        <p>{{uneannonce.secteur}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="text-center">
+    <img src="../../assets/desc.png" alt="desc" style="border-radius:28px;width:80%;">
+  </div>
+  <div>
+    <h3>Description de l'annonce</h3>
+    <p style="text-align: justify;">{{uneannonce.descriptionannonce}}</p>
+    <h3>Specifications</h3>
+      <ul>
+       <li>Titre du poste: {{uneannonce.nomposte}}</li> 
+      </ul>
+      <ul>
+        <li>Type de contrat: {{uneannonce.typecontrat}}</li> 
+       </ul>
+       <ul>
+        <li>Année d'experience: {{uneannonce.experience}} ans</li> 
+       </ul>
+       <ul>
+        <li>Lieu: {{uneannonce.lieu}}</li> 
+       </ul>
+       <ul>
+        <li>Date debut: {{uneannonce.datedebut |date:"dd/MM/YYYY"}}</li> 
+       </ul>
+       <ul>
+        <li>Date fin: {{uneannonce.datefin |date:"dd/MM/YYYY"}}</li>
+       </ul>
+       <ul>
+        <li>Profil: {{uneannonce.profil}}</li>
+       </ul>
+       
+    
+  </div>
+  <button class="btn text-center" data-bs-toggle="modal" data-bs-target="#user-info" 
+   (click)="postulerannonce(iddemandeur,idannonce)">Postuler</button>
+  <h1 class="py-1"></h1>
+</div>
+</ion-content>
+
+
+<!-- Modal -->
+<div class="modal fade" id="user-info" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="../../assets/job-exp.png" alt="logo" class="lg">
+        <h3 class="bie">Message</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p style="text-align: center;">Votre demande a bien été prise en charge nous 
+          vous contacterons pour plus d'information</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btnn btn-danger" data-bs-dismiss="modal">Fermer</button>
+
+      </div>
+    </div>
+  </div>
+</div>

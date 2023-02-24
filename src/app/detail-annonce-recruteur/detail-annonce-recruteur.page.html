@@ -1,0 +1,74 @@
+<ion-content>
+  <div class="container" style="background-image:url('../../assets/background.png');">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs2/annonce-recruteur" text="" icon="arrow-back"
+        style="color:#146170 ;"></ion-back-button>
+    </ion-buttons>
+    <div>
+      <img src="../../assets/job-exp.png" alt="logo" class="lg">
+    </div>
+    <div>
+      <h3 class="bien">Informations sur</h3>
+      <h3 class="bien">l'annonce</h3>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <div><img src="../../assets/cira.png" alt="logo" style="width:35%;border-radius:50%;"></div>
+        <div class="text-center">
+          <h4>Graphic Designer</h4>
+          <p>Design Studio</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-center">
+      <img src="../../assets/desc.png" alt="desc" style="border-radius:28px;width:80%;">
+    </div>
+    <div>
+      <h3>Description de l'annonce</h3>
+      <p style="text-align: justify;"> {{annonce.descriptionannonce}}</p>
+      <h3>Specifications</h3>
+      <ul>
+        <li>Titre du poste: {{annonce.nomposte}}</li>
+      </ul>
+      <ul>
+        <li>Type de contrat: {{annonce.typecontrat}}</li>
+      </ul>
+      <ul>
+        <li>Années d'experience: {{annonce.experience}} ans</li>
+      </ul>
+      <ul>
+        <li>Lieu: {{annonce.lieu}}</li>
+      </ul>
+      <ul>
+        <li>Date debut: {{annonce.datedebut|date:"dd/MM/YYYY"}}</li>
+      </ul>
+      <ul>
+        <li>Date debut: {{annonce.datefin|date:"dd/MM/YYYY"}}</li>
+      </ul>
+      <ul>
+        <li>Profil: {{annonce.profil}}</li>
+      </ul>
+
+
+    </div>
+    <div class="row">
+      <div col-6>
+
+        <button class="btn" style="background-color:#146170 ;" type="button" [routerLink]="['/tabs2/postulant',idannonce]"
+        >Demandeurs
+          <ion-icon name="people-outline" (click)="BTN()"></ion-icon>
+        </button>
+
+      </div>
+      
+      <div col-6 class="bt">
+        <button class="btn" style="background-color:#146170 ;" routerLink="/tabs2/modifier-annonce">Modifier <ion-icon
+            name="options-outline"></ion-icon></button>
+        <h1 class="py-1"></h1>
+      </div>
+    </div>
+    <h1 class="py-1"></h1>
+  </div>
+</ion-content>

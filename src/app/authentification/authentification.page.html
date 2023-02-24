@@ -1,0 +1,58 @@
+
+<ion-content>
+  <div class="container">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/accueil" text="" icon="arrow-back" style="color:#146170 ;"></ion-back-button>
+    </ion-buttons>
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          <img src="../../assets/mon logo.png" alt="Profil" class="imgP">
+        </div>
+        <h2>Authentification - Demandeur </h2>
+       </div>
+       <div class="col-12">
+        <form *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate>
+          <input class="form-control" type="text" placeholder="Email"
+          name="emailDemandeur"
+          [(ngModel)]="form.emailDemandeur"
+          required
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+        /> <br>
+        <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+          L'email est obligatoire!
+        </div>
+          <input class="form-control" type="password" placeholder=" Mot de passe" 
+          name="passwordDemandeur"
+          [(ngModel)]="form.passwordDemandeur"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        /> <br>
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Le mot de passe est obligatoire !</div>
+          <div *ngIf="password.errors['minlength']">
+            Le mot de passe doit être au moins 6 caractère 
+          </div>
+        </div>
+      
+          <input type="checkbox" > 
+          <p class="seSou">Se souvenir de moi</p>
+          
+          <div class="text-center">
+            <input type="submit" value="Connexion" class="connexion" >
+          </div>
+          <p class="ins">Vous n'avez pas de compte? <span style="color: #146170;"> <a routerLink="/inscription">incrivez-vous</a> </span></p>
+         
+        </form>
+       </div>
+      </div>
+    </div>
+  </ion-content>
+  

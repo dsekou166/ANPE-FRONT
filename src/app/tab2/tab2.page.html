@@ -1,17 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="container">
+    <div>
+      <img src="../../assets/job-exp.png" alt="logo" class="lg">
+    </div>
+    <div>
+      <h3 class="bien">Notifications</h3>
+    </div>
+    <div class="test" style="background: #FFFFFF;
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0.25, 0.25));
+        border-radius: 12px;" *ngFor="let all of allnotif | paginate:{itemsPerPage: 5, currentPage: p}
+                                        |filter:searhText; let i = index">
+      <div class="row">
+        <div class="col-4">
+          <div class="text-centre">
+            <img src="../../assets/alarm.png" alt="image" style="height: 70px;padding-left: 22px;margin-top: 20px;">
+          </div>
+        </div>
+        <div class="col-8 ">
+          <div class="desc">
+            <h3 style="text-align: center;">{{all.datenotif|date:"dd/MM/YYYY"}}</h3>
+            <p style="text-align:center; " data-bs-toggle="modal" data-bs-target="#user-info">
+              Cliquez pour lire</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 class="py-1"></h1>
+    <div class="pag">
+      <pagination-controls (pageChange)="p = $event" nextLabel="Suivants" previousLabel="Précedents"
+        [responsive]="responsive"></pagination-controls>
+    </div>
+  <div class="pag">
+    <h1 class="py-1"></h1>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+
+
+<!-- Modal -->
+<div class="modal fade" id="user-info" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" 
+*ngFor="let all of allnotif">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="../../assets/job-exp.png" alt="logo" class="lg">
+        <h3 class="bie">Notification</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p style="text-align: center;">{{all.message}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btnn btn-danger" data-bs-dismiss="modal" style="background-color: #146170;"
+        >Fermer</button>
+
+      </div>
+    </div>
+  </div>
+</div>

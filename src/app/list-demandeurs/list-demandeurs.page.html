@@ -1,0 +1,38 @@
+<ion-content>
+  <div class="container">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs2/recruteur" text="" icon="arrow-back" style="color:#146170 ;"></ion-back-button>
+    </ion-buttons>
+    <div>
+      <img src="../../assets/job-exp.png" alt="logo" class="lg">
+    </div>
+    <div>
+      <h3 class="bien">Les Demandeurs</h3>
+    </div>
+
+    <div class="test" *ngFor="let all of alldemandeur | paginate:{itemsPerPage: 5, currentPage: p}
+    |filter:searhText; let i = index">
+      <div class="row">
+        <div class="col-4">
+          <div >
+            <img src="{{all.photodemandeur}}" alt="photo" class="ptt">
+          </div>
+        </div>
+      <div class="col-5">
+        <h4>{{all.prenomdemandeur}} {{all.nomdemandeur}}</h4>
+        <span>{{all.profildemandeur}}</span><br>
+        <span>{{all.agedemandeur}} ans </span>
+      </div>
+      <div class="col-3">
+        <button class="btn" style="background-color:#146170 ;" (click)="goToDetaildemandeur(all.iddemandeur)">Voir+</button>
+      </div>
+      </div>
+          </div>  
+     <h1 class="py-2"></h1>
+     <div class="pag">
+      <pagination-controls (pageChange)="p = $event" nextLabel="Suivants" previousLabel="Précedents"
+        [responsive]="responsive"></pagination-controls>
+    </div>
+    <h1 class="py-2"></h1>
+  </div>
+</ion-content>

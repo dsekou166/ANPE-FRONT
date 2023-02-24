@@ -1,17 +1,57 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+    <div class="container">
+        <div>
+            <img src="../../assets/job-exp.png" alt="logo" class="lg">
+        </div>
+        <div>
+            <ion-searchbar placeholder="Recherche" [(ngModel)]="searhText"></ion-searchbar>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6-md">
+                    <div class="text-center"> 
+                        <img src="../../assets/back-img.png" alt="image accueil"
+                            style="height: 230px; border-radius: 12px;">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Post récents</h3>
+            </div>
+            <div class="test" style="background: #FFFFFF;
+        box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0.25, 0.25));
+        border-radius: 12px;"  *ngFor="let all of allannonce | paginate:{itemsPerPage: 5, currentPage: p}
+                                        |filter:searhText; let i = index">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="text-centre">
+                            <img src="{{all.photo}}" alt="image"
+                                style="height: 70px;padding-left: 22px;margin-top: 23px;">
+                        </div>
+                    </div>
+                    <div class="col-5" style=" line-height:12px; left:50px;margin-top: 20px;">
+                        <p><ion-icon name="archive-outline" style="padding-right: 5px;"></ion-icon>
+                            {{all.nomposte}}</p>
+                        <p><ion-icon name="calendar-number-outline" style="padding-right: 5px;"></ion-icon>{{all.datefin|date:"dd/MM/YYYY"}}
+                        </p>
+                        <p><ion-icon name="location-outline" style="padding-right: 5px;"></ion-icon>{{all.lieu}}</p>
+                        <div style="margin-top:-30px;">
+                    <div class="col-3 testt ">
+                        <button class="bt" (click)="goToDetailannonce(all.idannonce)">Voir plus</button>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="py-1"></h1>
+            <div class="pag">
+                <pagination-controls (pageChange)="p = $event" nextLabel="Suivants" previousLabel="Précedents"
+                  [responsive]="responsive"></pagination-controls>
+              </div>
+            
+           
+            <h1 class="py-1"></h1>
+        </div>
+    </div>

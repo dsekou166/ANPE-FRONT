@@ -1,0 +1,68 @@
+
+<ion-content>
+<div class="container">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="" text="" icon="arrow-back" style="color:#146170 ;"></ion-back-button>
+  </ion-buttons>
+  <div>
+    <img src="../../assets/job-exp.png" alt="logo" class="lg">
+  </div>
+  <div>
+    <h3 class="bien">Inscription</h3>
+  </div>
+  <p class="just">Veillez télécharger et renseigner tout les champs sur le document ci-dessous,
+    vous en aurez besoin pour la suite de l'inscription
+  </p>
+  <div>
+    <button class="btn" style="background-color:#146170 ;">Upload dossier <ion-icon name="cloud-upload-outline"></ion-icon></button>
+  </div>
+  <h1 class="py-1"></h1>
+  <div>
+    <form (ngSubmit)="add()">
+        <div class="form-group group1">
+            <input type="text" class="form-control" name="nomdemandeur" [(ngModel)]="nomDemandeur" placeholder="Nom">
+        </div>
+        <div class="form-group group1">
+            <input type="text" class="form-control" name="prenomdemandeur" [(ngModel)]="prenomDemandeur" placeholder="Prenom">
+        </div>
+        <div class="form-group group1">
+            <input type="text" class="form-control" name="adressedemandeur" [(ngModel)]="adresseDemandeur" placeholder="Adresse">
+        </div>
+        <div class="form-group group1">
+          <input type="number" maxlength="2" class="form-control" name="agedemandeur" [(ngModel)]="ageDemandeur" placeholder="Age">
+      </div>
+      <div class="form-group group1">
+        <input type="email" class="form-control" name="emaildemandeur" [(ngModel)]="emailDemandeur" placeholder="Email">
+    </div>
+    <div class="form-group group1">
+      <input type="password" class="form-control" name="passworddemandeur" [(ngModel)]="passwordDemandeur" placeholder="Mot de passe">
+  </div>
+  <div class="form-group group1">
+    <input type="text" class="form-control" name="profildemandeur" [(ngModel)]="profilDemandeur" placeholder="Profil">
+</div>
+
+<div class="form-group group1">
+  <label for="">Ajoutez le cv : </label>
+  <input type="file" class="form-control" name="cv" [(ngModel)]="cv" 
+  (change)="selectdoc($event)">
+</div>
+<div class="form-group group1" >
+  <label for="">Ajoutez le dossier : </label>
+  <input type="file" class="form-control"  name="dossierdemandeur" [(ngModel)]="dossierDemandeur" 
+  (change)="selectdoc($event)">
+</div>
+<div class="form-group group1">
+  <label for="">Ajoutez Votre photo : </label>
+  <input type="file" class="form-control" name="photodemandeur" [(ngModel)]="photodemandeur" 
+  (change)="selectFile($event)" >
+</div>
+
+<h1 class="py-1"></h1>
+<div class="bttt">
+  <button type="submit"  class="btn" style="background-color:#146170 ;">Enregistré</button>
+</div>
+        <h1 class="py-5"></h1>
+    </form>
+</div>
+</div>
+</ion-content>
