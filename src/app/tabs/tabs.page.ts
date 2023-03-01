@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ActivationStart, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  @ViewChild(RouterOutlet) outlet?: RouterOutlet;
 
-  constructor() {}
+  constructor(private route : Router) {}
+  ngOnInit(): void {
+    this.route.events.subscribe(e => {
+      if (e instanceof ActivationStart && e.snapshot.outlet === "tab1")
+        this.outlet?.deactivate();
+    });
+  }
+  }
 
-}
+

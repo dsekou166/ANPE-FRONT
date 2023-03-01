@@ -83,6 +83,10 @@ const routes: Routes = [
   {
     path: 'info-demandeur',
     loadChildren: () => import('./info-demandeur/info-demandeur.module').then( m => m.InfoDemandeurPageModule)
+  },
+  {
+    path: 'tabs1',
+    loadChildren: () => import('./tabs1/tabs1.module').then( m => m.Tabs1PageModule)
   }
 ];
 @NgModule({

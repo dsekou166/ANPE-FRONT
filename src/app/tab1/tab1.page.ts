@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivationStart, Router, RouterOutlet } from '@angular/router';
 import { AnnonceService } from '../Services/annonce.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { AnnonceService } from '../Services/annonce.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
+  
   searhText:any
   responsive=true
   p:number=1
@@ -21,10 +22,12 @@ export class Tab1Page implements OnInit {
       console.log(this.allannonce)
     }
     )
+
+   
   }
 
   goToDetailannonce(id:number){
-    return this.route.navigate(['tabs/detailsannonce', id])
+    return this.route.navigate(['tabs1/detailsannonce', id])
   }
 
 }

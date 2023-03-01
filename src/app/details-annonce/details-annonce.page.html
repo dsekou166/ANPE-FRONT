@@ -2,7 +2,7 @@
 <ion-content>
   <div class="container" style="background-image:url('../../assets/background.png');">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1" text="" icon="arrow-back" style="color:#146170 ;"></ion-back-button>
+      <ion-back-button defaultHref="/tabs1/tab1" text="" icon="arrow-back" style="color:#146170 ;"></ion-back-button>
     </ion-buttons>
   <div>
     <img src="../../assets/job-exp.png" alt="logo" class="lg">
@@ -13,10 +13,10 @@
   </div>
   <div class="row">
     <div class="col-12 text-center">
-      <div><img src="{{uneannonce.photoentreprise}}" alt="logo" style="width:35%;border-radius:50%;"></div>
+      <div><img src="{{uneannonce.recruteur.photoentreprise}}" alt="logo" class="prof"></div>
       <div class="text-center">
-        <h4>{{uneannonce.nomentreprise}}</h4>
-        <p>{{uneannonce.secteur}}</p>
+        <h4>{{uneannonce.recruteur.nomentreprise}}</h4>
+        <p>{{uneannonce.recruteur.secteur}}</p>
       </div>
     </div>
   </div>

@@ -35,13 +35,14 @@ export class ProfilePage implements OnInit {
       next: res => {
         console.log(res);
         this.storageService.clean();
-        this.router.navigateByUrl("/authentification")
-        window.location.reload();
+        
       },
       error: err => {
         console.log(err);
       }
     });
+    this.router.navigateByUrl("/authentification")
+        //window.location.reload();
   }
 
  

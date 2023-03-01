@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { DemandeurService } from '../Services/demandeur.service';
+import { DossierService } from '../Services/dossier.service';
 
 @Component({
   selector: 'app-inscription-user',
@@ -27,9 +28,16 @@ export class InscriptionUserPage implements OnInit {
   erreur!: boolean
   file: any
   image: any
-  constructor(private toast:ToastController,private demandeurserv:DemandeurService,private router:Router){ }
+  alldossier:any
+  constructor(private dossier:DossierService,private toast:ToastController,private demandeurserv:DemandeurService,private router:Router){ }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.dossier.getdossier().subscribe(data => {
+
+      this.alldossier = data
+      console.log(this.alldossier)
+    }
+    )
   }
 
   add(){
@@ -61,7 +69,7 @@ export class InscriptionUserPage implements OnInit {
     })
     this.formreset()
     this.retourmessage()
-    this.router.navigateByUrl("/authentification")
+    //this.router.navigateByUrl("/authentification")
 
   }
 
@@ -122,7 +130,7 @@ export class InscriptionUserPage implements OnInit {
 
   async retourmessage() {
     let toast = this.toast.create({
-      message: 'Votre inscription a été valider allez-y vous connecter !',
+      message: 'Votre inscription a été valider allez-y vous connecter',
       duration: 3000,
       color:'success',
       position: 'bottom'

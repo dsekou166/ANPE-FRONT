@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { timeStamp } from 'console';
 import { AnnonceService } from '../Services/annonce.service';
+import { DossierService } from '../Services/dossier.service';
 import { StorageService } from '../Services/storage.service';
 
 @Component({
@@ -27,13 +28,17 @@ export class AjouterAnnoncePage implements OnInit {
   erreur!: boolean;
   fichier: any;
   dossier: any;
-  
-  constructor(private toast:ToastController,private annonceserv:AnnonceService, private storage:StorageService,private route:Router) { }
+  alldossier:any
+  constructor(private service:DossierService,private toast:ToastController,private annonceserv:AnnonceService, private storage:StorageService,private route:Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.service.getdossier().subscribe(data => {
 
-    
-  }
+      this.alldossier = data
+      //console.log(this.alldossier)
+    }
+    )
+  } 
 
   add(){
     console.log(this.nomposte)
@@ -64,7 +69,7 @@ export class AjouterAnnoncePage implements OnInit {
     })
     this.formreset()
     this.messageretour()
-    this.route.navigateByUrl('/recruteur')
+    //this.route.navigateByUrl('/recruteur')
   }
 
   selectFile(e:any){
@@ -126,7 +131,7 @@ export class AjouterAnnoncePage implements OnInit {
     let toast = this.toast.create({
       message: 'Annonce creer avec succès',
       duration: 3000,
-      color:'danger',
+      color:'success',
       position: 'bottom'
     });
     (await toast).present();
