@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Tabs1Page } from './tabs1.page';
+import { TabssPage } from './tabss.page';
 
 const routes: Routes = [
   {
-    path: 'tabs1',
-    component: Tabs1Page,
+    path: 'tabss',
+    component: TabssPage,
     children: [
       {
         path: 'tab1',
@@ -33,6 +33,7 @@ const routes: Routes = [
         path: 'modifier-user',
         loadChildren: () => import('../modifier-user/modifier-user.module').then( m => m.ModifierUserPageModule)
       },
+      
       {
         path: 'profile',
         loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
@@ -42,6 +43,7 @@ const routes: Routes = [
         path: 'details-annonce',
         loadChildren: () => import('../details-annonce/details-annonce.module').then( m => m.DetailsAnnoncePageModule)
       },
+      
       
       {
         path: '',
@@ -56,8 +58,9 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class Tabs1PageRoutingModule {}
+export class TabssPageRoutingModule {}

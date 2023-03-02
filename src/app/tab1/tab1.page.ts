@@ -27,7 +27,7 @@ export class Tab1Page implements OnInit {
   }
 
   goToDetailannonce(id:number){
-    return this.route.navigate(['tabs1/detailsannonce', id])
+    return this.route.navigate(['tabss/detailsannonce', id])
   }
 
 }

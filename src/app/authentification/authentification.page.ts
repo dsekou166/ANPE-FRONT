@@ -44,7 +44,17 @@ isLoggedIn = false;
     this.servdemand.logindemandeur(emailDemandeur, passwordDemandeur).subscribe({
       next: data => {
         this.storageService.saveUser(data);
-        this.router.navigateByUrl('/tabs/tab1')
+        if(data.roles[0]=="ROLE_USER"){
+
+          this.router.navigateByUrl('/tabss/tab1')
+  
+        }
+        if(data.roles[0]=="ROLE_RECRUTEUR"){
+
+          this.erreur()
+          this.router.navigateByUrl('/authentification')
+  
+        }
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
@@ -62,5 +72,17 @@ isLoggedIn = false;
   reloadPage(): void {
     window.location.reload();
   }
+
+  async erreur() {
+    let toast = this.toast.create({
+      message: 'Allez sur page du recruteur',
+      duration: 3000,
+      color:'danger',
+      position: 'bottom'
+    });
+    (await toast).present();
+  }
+
+  
 }
 

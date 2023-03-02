@@ -62,7 +62,7 @@ onSubmit(): void {
       }
       if(data.roles[0]=="ROLE_USER"){
 
-        this.router.navigateByUrl('/tabs/tab1')
+        this.router.navigateByUrl('/tabss/tab1')
 
       }
       //this.router.navigateByUrl('/tabs2/recruteur')
@@ -87,7 +87,7 @@ logout(): void {
  
       this.storageService.clean();
       this.router.navigateByUrl("/auth2")
-      //window.location.reload();
+      this.reloadPage()
     
 }
 

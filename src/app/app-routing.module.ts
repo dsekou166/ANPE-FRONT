@@ -4,7 +4,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    redirectTo: 'accueil',
+    pathMatch: 'full'
   },
   
   {
@@ -85,10 +86,14 @@ const routes: Routes = [
     loadChildren: () => import('./info-demandeur/info-demandeur.module').then( m => m.InfoDemandeurPageModule)
   },
   {
-    path: 'tabs1',
-    loadChildren: () => import('./tabs1/tabs1.module').then( m => m.Tabs1PageModule)
-  }
+    path: '',
+    loadChildren: () => import('./tabss/tabss.module').then( m => m.TabssPageModule)
+  },
+
+ 
+  
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
