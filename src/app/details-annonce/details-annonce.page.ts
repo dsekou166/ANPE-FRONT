@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AnnonceService } from '../Services/annonce.service';
 import { StorageService } from '../Services/storage.service';
 
@@ -14,7 +15,7 @@ export class DetailsAnnoncePage implements OnInit {
   iddemandeur:any;
   
 
-  constructor(private route:ActivatedRoute,private annonceserv:AnnonceService,private storage:StorageService) { }
+  constructor(private toast:ToastController, private route:ActivatedRoute,private annonceserv:AnnonceService,private storage:StorageService) { }
 
   ngOnInit() {
 
@@ -30,12 +31,20 @@ export class DetailsAnnoncePage implements OnInit {
   postulerannonce(iddemandeur: any, idannonce: any){
 
     this.annonceserv.postuler(this.iddemandeur.id, this.idannonce).subscribe(data=>{
-  
+    this.retourmessage()
       
     })
    
   }
 
-  
+  async retourmessage() {
+    let toast = this.toast.create({
+      message: 'Merci, votre demande a été prise en compte.',
+      duration: 3000,
+      color:'success',
+      position: 'bottom'
+    });
+    (await toast).present();
+  } 
 
 }

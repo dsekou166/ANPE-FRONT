@@ -39,7 +39,7 @@ export class ProfilRecruteurPage implements OnInit {
     });
     this.router.navigateByUrl("/auth2")
     //window.location.reload();
-    this.reloadPage()
+    //this.reloadPage()
   }
 
   reloadPage(): void {

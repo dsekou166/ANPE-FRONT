@@ -10,7 +10,7 @@
     <div>
       <h3 class="bien">Ajouter une Annonce</h3>
     </div>
-    <p class="just">Veillez télécharger et renseigner tout les champs sur le document ci-dessous.
+    <p class="just">Veillez télécharger et renseigner tout les champs sur le dossier de l'annonce ci-dessous.
     </p>
     <div>
       <a class="btn" style="background-color:#146170 ;" 
@@ -47,12 +47,12 @@
   <h1 class="py-5"></h1>
   <div class="row">
     <div class="form-group group1">
-      <label for="">Photo:</label>
+      <label for="">Photo: (taille maximum 1.5 mo)</label>
       <input type="file"  class="form-control" name="photo" [(ngModel)]="photo" 
       (change)="selectFile($event)">
   </div>
   <div class="form-group group1">
-    <label for="">Dossier:</label>
+    <label for="">Dossier de l'annonce: (taille maximum 1.5 mo)</label>
     <input type="file"  class="form-control" name="dossierannonce" [(ngModel)]="dossierannonce"
     (change)="selectdoc($event)">
 </div>

@@ -36,8 +36,8 @@ export class ProfilePage implements OnInit {
         console.log(res);
         this.storageService.clean();
         this.router.navigateByUrl("/authentification");
-        this.delay(2000)
-        this.reloadPage()
+       // this.delay(2000)
+        //this.reloadPage()
       },
       error: err => {
         console.log(err);

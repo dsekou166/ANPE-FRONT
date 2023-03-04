@@ -87,7 +87,7 @@ logout(): void {
  
       this.storageService.clean();
       this.router.navigateByUrl("/auth2")
-      this.reloadPage()
+      
     
 }
 
