@@ -30,11 +30,19 @@ export class DetailsAnnoncePage implements OnInit {
 
   postulerannonce(iddemandeur: any, idannonce: any){
 
-    this.annonceserv.postuler(this.iddemandeur.id, this.idannonce).subscribe(data=>{
-    this.retourmessage()
-      
+    this.annonceserv.postuler(this.iddemandeur.id, this.idannonce).subscribe({
+      next: data=>{
+        this.retourmessage()
+          
+        },
+      error: e=>{
+        if(e.status == 200) {
+          this.retourmessage1()
+        }
+      }
+       
+    
     })
-   
   }
 
   async retourmessage() {
@@ -42,6 +50,16 @@ export class DetailsAnnoncePage implements OnInit {
       message: 'Merci, votre demande a été prise en compte.',
       duration: 3000,
       color:'success',
+      position: 'bottom'
+    });
+    (await toast).present();
+  } 
+
+  async retourmessage1() {
+    let toast = this.toast.create({
+      message: 'Vous avez deja postuler pour cette annonce!!',
+      duration: 3000,
+      color:'danger',
       position: 'bottom'
     });
     (await toast).present();

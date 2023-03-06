@@ -11,6 +11,9 @@ export class PostulantPage implements OnInit {
   alldem:any
   idannonce:any
   demandeur:any
+  searhText:any
+  responsive=true
+  p:number=1
   constructor(private ann:AnnonceService,private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit() {

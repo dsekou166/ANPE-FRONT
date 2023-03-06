@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -7,8 +8,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AnnonceService {
-env=environment
-  constructor(private http:HttpClient) { }
+ apiUrl = 'http://localhost:8080/postuler';
+  env=environment
+  information = []
+  constructor(private http:HttpClient,private toast:ToastController) { }
   creerannonce(nomposte:any,idrecruteur:any,annonce:any,file:any,dossier:any):Observable<any>{
     const data:FormData=new FormData();
     data.append('file',file)
@@ -40,4 +43,46 @@ env=environment
     return this.http.post(`http://localhost:8080/api/postuler/${iddemandeur}/${idannonce}`,null);
   }
 
+  postuler1(iddemandeur: any, idannonce: any){
+    // Vérifier si une postulation pour cette annonce et ce demandeur existe déjà
+    const url = `${this.apiUrl}?idannonce=${idannonce}&iddemandeur=${iddemandeur}`;
+    this.http.get(url).subscribe(data => {
+      this.information = data as []
+      if (this.information.length > 0) {
+        // Afficher un message d'erreur si une postulation existe déjà
+        this.retourmessage1()
+      } else {
+        // Ajouter une nouvelle postulation dans la base de données
+        const postulation = {
+          idannonce: idannonce,
+          iddemandeur: iddemandeur,
+          
+        };
+        this.http.post(this.apiUrl, postulation).subscribe(() => {
+         this.retourmessage2()
+        });
+      }
+    });
+  }
+
+  async retourmessage1() {
+    let toast = this.toast.create({
+      message: 'Vous avez dejà postuler pour cette annonce.',
+      duration: 3000,
+      color:'danger',
+      position: 'bottom'
+    });
+    (await toast).present();
+  } 
+
+  async retourmessage2() {
+    let toast = this.toast.create({
+      message: 'Votre demande a été prise en compte',
+      duration: 3000,
+      color:'success',
+      position: 'bottom'
+    });
+    (await toast).present();
+  } 
 }
+
